@@ -1,0 +1,1 @@
+# coding-dojo-vscode-extension
