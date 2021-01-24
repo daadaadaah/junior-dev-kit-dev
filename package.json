@@ -1,0 +1,111 @@
+{
+	"name": "junior-dev-kit",
+	"displayName": "junior-dev-kit",
+	"description": "A vscode extension for junior-dev-kit",
+	"version": "0.0.2",
+	"publisher": "daadaadaah",
+	"engines": {
+		"vscode": "^1.51.0"
+	},
+	"icon": "images/junior_dev_kit.png",
+	"categories": [
+		"Other"
+	],
+	"repository": "https://github.com/daadaadaah/junior-dev-kit.git",
+	"activationEvents": [
+		"onCommand:junior-dev-kit.programmers",
+		"onCommand:junior-dev-kit.til"
+	],
+	"main": "./dist/extension.js",
+	"contributes": {
+		"configuration": [
+			{
+				"title": "junior-dev-kit",
+				"properties": {
+					"junior-dev-kit.codingdojoTargetPath": {
+						"type": "string",
+						"default": null,
+						"description": "코딩 테스트를 위한 기본 경로를 설정해주세요"
+					},
+					"junior-dev-kit.tilTargetPath": {
+						"type": "string",
+						"default": null,
+						"description": "TIL을 위한 기본 경로를 설정해주세요"
+					}
+				}
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"command": "junior-dev-kit.programmers",
+					"when": "editorHasSelection"
+				},
+				{
+					"command": "junior-dev-kit.til",
+					"when": "editorHasSelection"
+				}
+			]
+		},
+		"commands": [
+			{
+				"command": "junior-dev-kit.programmers",
+				"title": "[junior-dev-kit] Programmers"
+			},
+			{
+				"command": "junior-dev-kit.til",
+				"title": "[junior-dev-kit] TIL"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "junior-dev-kit.programmers",
+				"mac": "cmd+shift+j",
+				"key": "ctrl+shift+j",
+				"when": "editorHasSelection"
+			},
+			{
+				"command": "junior-dev-kit.til",
+				"mac": "cmd+shift+l",
+				"key": "ctrl+shift+l",
+				"when": "editorHasSelection"
+			}
+		]
+	},
+	"scripts": {
+		"watch": "webpack --watch --devtool nosources-source-map --info-verbosity verbose --config ./build/node-extension.webpack.config.js",
+		"test": "tsc -watch -p ./",
+		"test-compile": "tsc -p ./",
+		"compile": "webpack --devtool nosources-source-map --config ./build/node-extension.webpack.config.js",
+		"package": "webpack --mode production --config ./build/node-extension.webpack.config.js",
+		"pretest": "npm run test-compile && npm run lint",
+		"test-unit": "jest",
+		"test-unit:watch": "npm run test-unit -- --watchAll --verbose --coverage",
+		"lint": "eslint src --ext ts",
+		"vscode:prepublish": "npm run package",
+		"vscode:publish": "vsce publish"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/jest": "^26.0.16",
+		"@types/vscode": "^1.51.0",
+		"@typescript-eslint/eslint-plugin": "^4.1.1",
+		"@typescript-eslint/parser": "^4.1.1",
+		"eslint": "^7.9.0",
+		"eslint-config-airbnb-base": "^14.2.1",
+		"eslint-plugin-import": "^2.22.1",
+		"eslint-plugin-jest": "^24.1.3",
+		"glob": "^7.1.6",
+		"jest": "^26.6.3",
+		"ts-jest": "^26.4.4",
+		"ts-loader": "^8.0.3",
+		"typescript": "^4.0.2",
+		"vscode-test": "^1.4.0",
+		"webpack": "^4.44.1",
+		"webpack-cli": "^3.3.12"
+	},
+	"dependencies": {
+		"@types/node-fetch": "^2.5.7",
+		"node-fetch": "^2.6.1"
+	}
+}
