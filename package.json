@@ -2,7 +2,7 @@
 	"name": "junior-dev-kit",
 	"displayName": "junior-dev-kit",
 	"description": "A vscode extension for junior-dev-kit",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"publisher": "daadaadaah",
 	"engines": {
 		"vscode": "^1.51.0"
