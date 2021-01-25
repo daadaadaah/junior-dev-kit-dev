@@ -20,21 +20,29 @@ export const showQuizByLevel = (level: number) => {
   quickPick.onDidChangeSelection(async ([item]) => {
     if (item) {
       const basePath = getCodingdojoTargetPath() || getBasePath();
-      const folerName = `/level${level}`; // 레벨별, 날짜별
+      const folerName = `/level${level}/`; // 레벨별, 날짜별
       const dirPath = basePath + folerName;
+      try {
+        await createDir(dirPath);
 
-      await createDir(dirPath);
+        const fileName = removeSpecialCharacters(item.label).replace(/ /gi, '_');
+        const filePath = `${dirPath}${fileName}.test.js`;
 
-      const fileName = removeSpecialCharacters(item.label).replace(/ /gi, '_');
-      const filePath = `${dirPath}/${fileName}.test.js`;
-      await readFile(filePath);
+        await readFile(filePath);
 
-      const filePathUri = vscode.Uri.file(filePath);
-      await vscode.commands.executeCommand('vscode.openFolder', filePathUri, true);
+        const filePathUri = vscode.Uri.file(filePath);
+        await vscode.commands.executeCommand('vscode.openFolder', filePathUri, true);
 
-      vscode.window.showInformationMessage(
-        `[${fileName} 문제 보기](${item.description}) `,
-      );
+        vscode.window.showInformationMessage(
+          `[${fileName} 문제 보기](${item.description}) `,
+        );
+      } catch (error) {
+        if (error.errno === -2) {
+          vscode.window.showErrorMessage(
+            `${basePath} : 폴더 또는 파일 경로가 존재하는지 확인해주세요`,
+          );
+        }
+      }
 
       quickPick.dispose();
     }
@@ -88,12 +96,21 @@ export const programmers = async () => {
 
 export const til = async () => {
   const basePath = getTilTargetPath() || getBasePath();
-  await createDir(basePath);
 
-  const fileName = getTodayDate();
-  const filePath = `${basePath}/${fileName}.md`;
-  await readFile(filePath);
+  try {
+    await createDir(basePath);
 
-  const filePathUri = vscode.Uri.file(filePath);
-  await vscode.commands.executeCommand('vscode.openFolder', filePathUri, true);
+    const fileName = getTodayDate();
+    const filePath = `${basePath}/${fileName}.md`;
+    await readFile(filePath);
+
+    const filePathUri = vscode.Uri.file(filePath);
+    await vscode.commands.executeCommand('vscode.openFolder', filePathUri, true);
+  } catch (error) {
+    if (error.errno === -2) {
+      vscode.window.showErrorMessage(
+        `${basePath} : 폴더 또는 파일 경로가 존재하는지 확인해주세요`,
+      );
+    }
+  }
 };
