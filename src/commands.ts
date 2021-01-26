@@ -3,7 +3,7 @@ import * as vscode from 'vscode';
 import all from '../assets/programmers/all.json';
 
 import {
-  getUrl, createDir, removeSpecialCharacters, readFile, getTodayDate,
+  getUrl, createDir, removeSpecialCharacters, isFile, createFile, getTodayDate,
   isMatched as isCurrentTargetPath,
 } from './utils';
 
@@ -29,7 +29,10 @@ export const showQuizByLevel = (level: number) => {
 
         const fileName = removeSpecialCharacters(item.label).replace(/ /gi, '_');
         const filePath = `${dirPath}${fileName}.test.js`;
-        await readFile(filePath);
+
+        if (!isFile(filePath)) {
+          await createFile(filePath, item.description);
+        }
 
         const currentWorkspacePath = vscode.workspace.workspaceFolders[0].uri.fsPath;
 
@@ -113,7 +116,9 @@ export const til = async () => {
 
     const fileName = getTodayDate();
     const filePath = `${basePath}/${fileName}.md`;
-    await readFile(filePath);
+    if (!isFile(filePath)) {
+      await createFile(filePath, '# TIL');
+    }
 
     const currentOpenWorkspacePath = vscode.workspace.workspaceFolders[0].uri.fsPath;
 
