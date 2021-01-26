@@ -35,10 +35,18 @@ export const createDir = async (path: string) => {
   await promises.mkdir(path, { recursive: true }); // true : 이미 존재하면, 그 경로 반환해라
 };
 
-export const readFile = async (
+export const isFile = async (
   path: string,
 ) => {
-  await promises.readFile(path, { flag: 'a+' }); // a+ : 없으면 만들어라
+  const state = await promises.stat(path);
+
+  return state.isFile();
+};
+
+export const createFile = async (
+  path: string, url: string,
+) => {
+  await promises.writeFile(path, `// URL : ${url} `);
 };
 
 export const isMatched = (string, targetWord) => {

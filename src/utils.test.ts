@@ -6,9 +6,21 @@ import {
   getTodayDate,
   getUrl,
   createDir,
-  readFile,
+  isFile,
+  createFile,
   isMatched,
 } from './utils';
+
+jest.mock('fs', () => ({
+  promises: {
+    stat: jest.fn().mockImplementation(() => ({
+      isDirectory: jest.fn().mockRejectedValue(true),
+      isFile: jest.fn().mockRejectedValue(true),
+    })),
+    mkdir: jest.fn(),
+    writeFile: jest.fn(),
+  },
+}));
 
 test('removeSpecialCharacters', () => {
   expect(removeSpecialCharacters('한.글')).toBe('한글');
@@ -39,10 +51,16 @@ test('createDir', async () => {
   expect(stat.isDirectory()).toBeTruthy();
 });
 
-test('readFile', async () => {
+test('isFile', async () => {
   const filePath = `${__dirname}/../fixture/TIL/20210124.md`;
 
-  await readFile(filePath);
+  expect(isFile(filePath)).toBeTruthy();
+});
+
+test('createFile', async () => {
+  const filePath = `${__dirname}/../fixture/TIL/20210124.md`;
+
+  await createFile(filePath, 'www.exaple.com/111');
 
   const stat = await promises.stat(filePath);
 
