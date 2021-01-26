@@ -52,6 +52,10 @@
 
 ## Release Notes
 
+### 0.0.5
+
+- Fix bug([#11](https://github.com/daadaadaah/junior-dev-kit/issues/11))
+
 ### 0.0.4
 
 - Fix bug([#6](https://github.com/daadaadaah/junior-dev-kit/issues/6), [#7](https://github.com/daadaadaah/junior-dev-kit/issues/7))
