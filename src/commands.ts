@@ -29,8 +29,9 @@ export const showQuizByLevel = (level: number) => {
 
         const fileName = removeSpecialCharacters(item.label).replace(/ /gi, '_');
         const filePath = `${dirPath}${fileName}.test.js`;
-
-        if (!isFile(filePath)) {
+        try {
+          await isFile(filePath);
+        } catch (error) {
           await createFile(filePath, item.description);
         }
 
@@ -116,7 +117,10 @@ export const til = async () => {
 
     const fileName = getTodayDate();
     const filePath = `${basePath}/${fileName}.md`;
-    if (!isFile(filePath)) {
+
+    try {
+      isFile(filePath);
+    } catch (error) {
       await createFile(filePath, '# TIL');
     }
 

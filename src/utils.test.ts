@@ -14,8 +14,8 @@ import {
 jest.mock('fs', () => ({
   promises: {
     stat: jest.fn().mockImplementation(() => ({
-      isDirectory: jest.fn().mockRejectedValue(true),
-      isFile: jest.fn().mockRejectedValue(true),
+      isDirectory: jest.fn().mockResolvedValue(false),
+      isFile: jest.fn().mockResolvedValue(false),
     })),
     mkdir: jest.fn(),
     writeFile: jest.fn(),
@@ -51,7 +51,7 @@ test('createDir', async () => {
   expect(stat.isDirectory()).toBeTruthy();
 });
 
-test('isFile', async () => {
+test('isFile', () => {
   const filePath = `${__dirname}/../fixture/TIL/20210124.md`;
 
   expect(isFile(filePath)).toBeTruthy();
