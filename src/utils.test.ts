@@ -7,6 +7,7 @@ import {
   getUrl,
   createDir,
   readFile,
+  isMatched,
 } from './utils';
 
 test('removeSpecialCharacters', () => {
@@ -21,7 +22,7 @@ test('leadingZeros', () => {
 });
 
 test('getTodayDate', () => {
-  expect(getTodayDate()).toBe('20210124');
+  expect(getTodayDate().length).toBe(8);
 });
 
 test('getUrl', () => {
@@ -46,4 +47,10 @@ test('readFile', async () => {
   const stat = await promises.stat(filePath);
 
   expect(stat.isFile()).toBeTruthy();
+});
+
+test('isMatched', async () => {
+  expect(isMatched('abcdefg', 'bc')).toBeTruthy();
+
+  expect(isMatched('abcdefg', 'dc')).toBeFalsy();
 });

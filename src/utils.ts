@@ -40,3 +40,21 @@ export const readFile = async (
 ) => {
   await promises.readFile(path, { flag: 'a+' }); // a+ : 없으면 만들어라
 };
+
+export const isMatched = (string, targetWord) => {
+  for (let i = 0; i < string.length; i += 1) {
+    let match = true;
+
+    for (let j = 0; j < targetWord.length; j += 1) {
+      if (string[i + j] !== targetWord[j]) {
+        match = false;
+        break;
+      }
+    }
+
+    if (match) {
+      return match;
+    }
+  }
+  return false;
+};

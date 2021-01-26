@@ -4,6 +4,7 @@ import all from '../assets/programmers/all.json';
 
 import {
   getUrl, createDir, removeSpecialCharacters, readFile, getTodayDate,
+  isMatched as isCurrentTargetPath,
 } from './utils';
 
 import { getBasePath, getCodingdojoTargetPath, getTilTargetPath } from './config';
@@ -20,18 +21,28 @@ export const showQuizByLevel = (level: number) => {
   quickPick.onDidChangeSelection(async ([item]) => {
     if (item) {
       const basePath = getCodingdojoTargetPath() || getBasePath();
-      const folerName = `/level${level}/`; // 레벨별, 날짜별
-      const dirPath = basePath + folerName;
+
       try {
+        const folerName = `/level${level}/`; // 레벨별, 날짜별
+        const dirPath = basePath + folerName;
         await createDir(dirPath);
 
         const fileName = removeSpecialCharacters(item.label).replace(/ /gi, '_');
         const filePath = `${dirPath}${fileName}.test.js`;
-
         await readFile(filePath);
 
-        const filePathUri = vscode.Uri.file(filePath);
-        await vscode.commands.executeCommand('vscode.openFolder', filePathUri, true);
+        const currentWorkspacePath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+
+        const shortPath = basePath.length < currentWorkspacePath.length ? basePath : currentWorkspacePath;
+        const longPath = basePath.length > currentWorkspacePath.length ? basePath : currentWorkspacePath;
+
+        if (isCurrentTargetPath(longPath, shortPath)) {
+          const filePathUri = vscode.Uri.file(filePath);
+          await vscode.commands.executeCommand('vscode.openFolder', filePathUri, false);
+        } else {
+          const dirPathUri = vscode.Uri.file(basePath);
+          await vscode.commands.executeCommand('vscode.openFolder', dirPathUri, true);
+        }
 
         vscode.window.showInformationMessage(
           `[${fileName} 문제 보기](${item.description}) `,
@@ -104,8 +115,18 @@ export const til = async () => {
     const filePath = `${basePath}/${fileName}.md`;
     await readFile(filePath);
 
-    const filePathUri = vscode.Uri.file(filePath);
-    await vscode.commands.executeCommand('vscode.openFolder', filePathUri, true);
+    const currentOpenWorkspacePath = vscode.workspace.workspaceFolders[0].uri.fsPath;
+
+    const shortPath = basePath.length < currentOpenWorkspacePath.length ? basePath : currentOpenWorkspacePath;
+    const longPath = basePath.length > currentOpenWorkspacePath.length ? basePath : currentOpenWorkspacePath;
+
+    if (isCurrentTargetPath(longPath, shortPath)) {
+      const filePathUri = vscode.Uri.file(filePath);
+      await vscode.commands.executeCommand('vscode.openFolder', filePathUri, false);
+    } else {
+      const dirPathUri = vscode.Uri.file(basePath);
+      await vscode.commands.executeCommand('vscode.openFolder', dirPathUri, true);
+    }
   } catch (error) {
     if (error.errno === -2) {
       vscode.window.showErrorMessage(
