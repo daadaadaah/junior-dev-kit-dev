@@ -2,7 +2,7 @@
 	"name": "junior-dev-kit",
 	"displayName": "junior-dev-kit",
 	"description": "A vscode extension for junior-dev-kit",
-	"version": "0.0.9",
+	"version": "0.0.10",
 	"publisher": "daadaadaah",
 	"engines": {
 		"vscode": "^1.51.0"
@@ -60,17 +60,15 @@
 		"keybindings": [
 			{
 				"command": "junior-dev-kit.programmers",
-				"mac": "cmd+shift+j",
-				"key": "ctrl+shift+r",
-				"linux": "ctrl+shift+r",
-				"when": "editorHasSelection"
+				"mac": "cmd+shift+u",
+				"key": "ctrl+shift+u",
+				"linux": "ctrl+shift+u"
 			},
 			{
 				"command": "junior-dev-kit.til",
-				"mac": "cmd+shift+l",
-				"key": "ctrl+shift+i",
-				"linux": "ctrl+shift+i",
-				"when": "editorHasSelection"
+				"mac": "cmd+shift+w",
+				"key": "ctrl+shift+w",
+				"linux": "ctrl+shift+w"
 			}
 		]
 	},
