@@ -2,7 +2,7 @@
 	"name": "junior-dev-kit",
 	"displayName": "junior-dev-kit",
 	"description": "A vscode extension for junior-dev-kit",
-	"version": "0.0.10",
+	"version": "0.1.0",
 	"publisher": "daadaadaah",
 	"engines": {
 		"vscode": "^1.51.0"
@@ -14,7 +14,8 @@
 	"repository": "https://github.com/daadaadaah/junior-dev-kit.git",
 	"activationEvents": [
 		"onCommand:junior-dev-kit.programmers",
-		"onCommand:junior-dev-kit.til"
+		"onCommand:junior-dev-kit.til",
+		"onCommand:junior-dev-kit.whichHTMLElement"
 	],
 	"main": "./dist/extension.js",
 	"contributes": {
@@ -44,6 +45,10 @@
 				{
 					"command": "junior-dev-kit.til",
 					"when": "editorHasSelection"
+				},
+				{
+					"command": "junior-dev-kit.whichHTMLElement",
+					"when": "editorHasSelection"
 				}
 			]
 		},
@@ -55,6 +60,10 @@
 			{
 				"command": "junior-dev-kit.til",
 				"title": "[junior-dev-kit] TIL"
+			},
+			{
+				"command": "junior-dev-kit.whichHTMLElement",
+				"title": "[junior-dev-kit] which HTMLElement is it?"
 			}
 		],
 		"keybindings": [
@@ -69,6 +78,13 @@
 				"mac": "cmd+shift+w",
 				"key": "ctrl+shift+w",
 				"linux": "ctrl+shift+w"
+			},
+			{
+				"command": "junior-dev-kit.whichHTMLElement",
+				"mac": "ctrl+shift+,",
+				"key": "ctrl+shift+,",
+				"linux": "ctrl+shift+,",
+				"when": "editorHasSelection"
 			}
 		]
 	},
@@ -91,7 +107,7 @@
 		"@types/vscode": "^1.51.0",
 		"@typescript-eslint/eslint-plugin": "^4.1.1",
 		"@typescript-eslint/parser": "^4.1.1",
-		"eslint": "^7.9.0",
+		"eslint": "^7.31.0",
 		"eslint-config-airbnb-base": "^14.2.1",
 		"eslint-plugin-import": "^2.22.1",
 		"eslint-plugin-jest": "^24.1.3",

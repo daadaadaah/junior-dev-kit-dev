@@ -12,7 +12,10 @@
 
 2. TIL 작성을 편리하게 할 수 있습니다.
 
+3. HTML 요소가 Block Level 요소인지, Inline Level 요소인지 검사할 수 있습니다.
+
 ### [방법 1] 명령어로 이용하기
+> 아래 명령어를 입력하여 원하는 메뉴를 선택하세요
 
 - MacOS: `Cmd + shift + p`
 - Window: `Ctrl + shift + p`
@@ -33,6 +36,12 @@
 - MacOS: `Cmd + Ctrl + w`
 - Window: `Ctrl + Window + w`
 - Linux: `Ctrl + Shift + w`
+
+#### (3) Which HTML Element is it? 이용하기
+
+- MacOS: `Cmd + Shift + ,`
+- Window: `Ctrl + Shift + ,`
+- Linux: `Ctrl + Shift + ,`
 
 ## Extension Settings
 
@@ -57,6 +66,9 @@
 ```
 
 ## Release Notes
+### 0.1.0
+- Add Feature for checking which HTML Element is
+
 
 ### 0.0.10
 

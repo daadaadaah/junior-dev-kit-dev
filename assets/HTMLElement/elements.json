@@ -1,0 +1,364 @@
+[
+  {
+    "tagName": "<address>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<article>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<aside>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<blockquote>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<details>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<dialog>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<dd>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<div>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<dl>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<dt>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<fieldset>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<figcaption>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<figure>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<footer>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<form>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<address>",
+    "type": "Block Level Elements"
+  },
+
+  {
+    "tagName": "<address>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<h1>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<h2>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<h3>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<h4>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<h5>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<h6>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<header>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<hgroup>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<hr>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<main>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<nav>",
+    "type": "Block Level Elements"
+  },
+
+  {
+    "tagName": "<ul>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<ol>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<li>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<p>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<pre>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<section>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<table>",
+    "type": "Block Level Elements"
+  },
+  {
+    "tagName": "<a>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<abbr>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<acronym>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<audio>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<b>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<bdi>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<bdo>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<big>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<br>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<button>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<canvas>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<cite>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<code>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<data>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<datalist>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<del>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<dfn>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<em>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<embed>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<i>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<iframe>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<img>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<input>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<ins>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<kbd>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<label>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<map>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<mark>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<meter>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<noscript>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<object>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<output>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<picture>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<progress>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<q>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<ruby>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<s>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<samp>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<script>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<select>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<slot>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<small>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<span>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<strong>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<sub>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<sup>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<svg>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<template>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<textarea>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<time>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<u>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<tt>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<var>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<video>" ,
+    "type": "Inline Elements"
+  },
+  {
+    "tagName": "<wbr>" ,
+    "type": "Inline Elements"
+  }
+]
