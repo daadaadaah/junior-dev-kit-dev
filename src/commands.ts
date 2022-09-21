@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 
 import all from '../assets/programmers/all.json';
+import elements from '../assets/HTMLElement/elements.json';
 
 import {
   getUrl, createDir, removeSpecialCharacters, isFile, createFile, getTodayDate,
@@ -143,4 +144,57 @@ export const til = async () => {
       );
     }
   }
+};
+
+export const whichHTMLElement = async () => {
+  const editor = vscode.window.activeTextEditor;
+
+  if (!editor) {
+    vscode.window.showErrorMessage('editor does not exist');
+    return;
+  }
+
+  let text = editor.document.getText(editor.selection).trim();
+
+  if (!text) {
+    vscode.window.showWarningMessage('검사할 텍스트를 선택해주세요');
+    return;
+  }
+
+  if (text.indexOf('<') === -1) {
+    text = `<${text}`;
+  }
+
+  if (text.indexOf('>') === -1) {
+    text = `${text}>`;
+  }
+
+  if (text.indexOf('/') !== -1) {
+    text = text.replace('/', '');
+  }
+
+  const whichHtmlElement = elements.find((element) => element.tagName === text);
+
+  if (!whichHtmlElement) {
+    vscode.window.showWarningMessage('올바른 HTML Element 를 선택해주세요');
+    return;
+  }
+
+  const quickPickMenus = [
+    {
+      label: whichHtmlElement.type,
+      description: text,
+    },
+  ];
+
+  const quickPick = vscode.window.createQuickPick();
+  quickPick.items = quickPickMenus;
+
+  quickPick.onDidChangeSelection(([item]) => {
+    if (item) {
+      quickPick.dispose();
+    }
+  });
+  quickPick.onDidHide(() => quickPick.dispose());
+  quickPick.show();
 };
